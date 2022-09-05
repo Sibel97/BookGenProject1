@@ -11,8 +11,6 @@ pipeline {
         
         stage('Deploy') {
             steps {
-                # sh "scp -i ~/.ssh/ansible_id_rsa docker-compose.yaml mnode:/home/root/docker-compose.yaml"
-                # sh "scp -i ~/.ssh/ansible_id_rsa nginx.conf mnode:/home/root/nginx.conf"
                 sh "ansible-playbook -i configuration/inventory.yaml configuration/playbook.yaml"
             }
         }
